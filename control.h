@@ -17,6 +17,7 @@ public:
     
 private:
     Ui::Control *ui;
+    void InitWindow();
 };
 
 #endif // CONTROL_H

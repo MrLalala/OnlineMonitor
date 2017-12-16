@@ -1,24 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>Control</class>
- <widget class="QMainWindow" name="Control" >
-  <property name="geometry" >
+ <widget class="QMainWindow" name="Control">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>583</width>
+    <height>385</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="font">
+   <font>
+    <family>Microsoft YaHei UI</family>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
    <string>Control</string>
   </property>
-  <widget class="QMenuBar" name="menuBar" />
-  <widget class="QToolBar" name="mainToolBar" />
-  <widget class="QWidget" name="centralWidget" />
-  <widget class="QStatusBar" name="statusBar" />
+  <property name="styleSheet">
+   <string notr="true">
+</string>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonTextUnderIcon</enum>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QToolButton" name="toolButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>171</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Microsoft YaHei UI</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Test</string>
+    </property>
+    <property name="icon">
+     <iconset resource="resources.qrc">
+      <normaloff>:/images/PNG101.png</normaloff>:/images/PNG101.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>100</height>
+     </size>
+    </property>
+    <property name="toolButtonStyle">
+     <enum>Qt::ToolButtonTextUnderIcon</enum>
+    </property>
+    <property name="autoRaise">
+     <bool>false</bool>
+    </property>
+   </widget>
+  </widget>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
- <resources/>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
