@@ -19,7 +19,8 @@ SOURCES += main.cpp\
 
 HEADERS  += control.h \
     login.h \
-    mybutton.h
+    mybutton.h \
+    SqlConn.h
 
 FORMS    += control.ui \
     login.ui

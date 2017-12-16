@@ -9,14 +9,14 @@ class MyButton : public QPushButton
 public:
     explicit MyButton(QWidget *parent = 0);
     ~MyButton(){return;}
-protected:
-
 signals:
     
 public slots:
 
 private:
     QString qss;
+    void enterEvent(QEvent *);
+    void leaveEvent(QEvent *);
     
 };
 

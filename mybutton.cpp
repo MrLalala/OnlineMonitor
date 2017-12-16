@@ -3,6 +3,16 @@
 MyButton::MyButton(QWidget *parent) :
     QPushButton(parent)
 {
-    qss = "MyButton:!hover{background: transparent;color: black} MyButton:hover{background: transparent; color: blue; text-decoration: underline}";
-    setStyleSheet(qss);
+    qss = "MyButton{background: transparent;color: %1}";
+    setStyleSheet(qss.arg("black"));
+}
+
+void MyButton::enterEvent(QEvent *)
+{
+    setStyleSheet(qss.arg("blue;text-decoration:underline;"));
+}
+
+void MyButton::leaveEvent(QEvent *)
+{
+    setStyleSheet(qss.arg("black"));
 }

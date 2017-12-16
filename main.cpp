@@ -1,10 +1,13 @@
 #include "control.h"
 #include "login.h"
+#include "SqlConn.h"
+#include <QDebug>
 #include <QApplication>
 #include <QTextCodec>
 
 int main(int argc, char *argv[])
 {
+//    InitSql();
     QApplication a(argc, argv);
 //    添加中文显示
     QTextCodec* codec = QTextCodec::codecForName("urf-8");
