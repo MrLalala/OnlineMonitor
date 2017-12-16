@@ -28,28 +28,53 @@ QSqlDatabase* Conn()
     return database;
 }
 
-void InitSql()
+
+bool QueryRun(QSqlQuery& query, const QString opt)
+{
+    if (!query.exec())
+    {
+        qDebug()<<"Error:"<<query.lastError()<<" in "<<opt;
+        return false;
+    }
+    return true;
+}
+
+bool InitTable()
 {
     QSqlDatabase* database = Conn();
     if (!database->open())
     {
-        qDebug()<<"open failed!"<<database->lastError();
+        qDebug()<<"Database open Error:"<<database->lastError();
+        return false;
     }
-    else
-    {
-        qDebug()<<"Open success!";
-    }
-    QString sql = "create table student(id int primary key, name varchar(30), age int)";
     QSqlQuery query(*database);
+    QString sql = "select * from user where name='admin';";
     query.prepare(sql);
-    if (!query.exec())
+    if (QueryRun(query, "Find admin"))
     {
-        qDebug()<<"Error:"<<query.lastError();
+        if (!query.next())
+        {
+            sql = "INSERT INTO user(name, password, permission) VALUES('admin', 'admin', 1);";
+            query.prepare(sql);
+            if (!QueryRun(query, "Insert admin"))
+            {
+                qDebug()<<"Error Init";
+                return false;
+            }
+        }
     }
     else
     {
-        qDebug()<<"Create Success!";
+        sql = "CREATE TABLE user ('id' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,'name'  TEXT(20) NOT NULL,'password'  TEXT(20) NOT NULL,'permission'  INTEGER NOT NULL);";
+        query.prepare(sql);
+        if (!QueryRun(query, "Add Table"))
+            return false;
+        sql = "INSERT INTO user(name, password, permission) VALUES('admin', 'admin', 1);";
+        query.prepare(sql);
+        if (!QueryRun(query, "Inser admin"))
+            return false;
     }
+    return true;
 }
 
 #endif // SQLCONN_H

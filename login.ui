@@ -19,7 +19,7 @@
   <widget class="QLabel" name="welcome">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>50</x>
      <y>20</y>
      <width>301</width>
      <height>61</height>
@@ -38,11 +38,11 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>200</y>
+     <x>90</x>
+     <y>220</y>
      <width>209</width>
      <height>31</height>
     </rect>
@@ -74,60 +74,6 @@
       </property>
       <property name="text">
        <string>退出</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>100</y>
-     <width>209</width>
-     <height>81</height>
-    </rect>
-   </property>
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="user"/>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="label_2">
-      <property name="font">
-       <font>
-        <family>Microsoft YaHei UI</family>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>密码：</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QLabel" name="label">
-      <property name="font">
-       <font>
-        <family>Microsoft YaHei UI</family>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>用户名：</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="password">
-      <property name="echoMode">
-       <enum>QLineEdit::Password</enum>
       </property>
      </widget>
     </item>
@@ -165,15 +111,79 @@
     <bool>true</bool>
    </property>
   </widget>
-  <zorder>gridLayoutWidget</zorder>
-  <zorder>horizontalLayoutWidget</zorder>
-  <zorder>horizontalSpacer_3</zorder>
-  <zorder>label</zorder>
-  <zorder>welcome</zorder>
-  <zorder></zorder>
-  <zorder></zorder>
-  <zorder>signin</zorder>
-  <zorder>about</zorder>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>100</y>
+     <width>64</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Microsoft YaHei UI</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>用户名：</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="user">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>100</y>
+     <width>181</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Microsoft YaHei UI</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>150</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Microsoft YaHei UI</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>密码：</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="password">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>150</y>
+     <width>181</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
+  </widget>
  </widget>
  <customwidgets>
   <customwidget>
@@ -182,6 +192,12 @@
    <header location="global">mybutton.h</header>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>login</tabstop>
+  <tabstop>exit</tabstop>
+  <tabstop>signin</tabstop>
+  <tabstop>about</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

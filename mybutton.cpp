@@ -9,7 +9,7 @@ MyButton::MyButton(QWidget *parent) :
 
 void MyButton::enterEvent(QEvent *)
 {
-    setStyleSheet(qss.arg("blue;text-decoration:underline;"));
+    setStyleSheet(qss.arg("white;text-decoration:underline;"));
 }
 
 void MyButton::leaveEvent(QEvent *)
