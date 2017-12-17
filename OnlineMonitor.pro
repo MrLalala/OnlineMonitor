@@ -15,15 +15,28 @@ TEMPLATE = app
 SOURCES += main.cpp\
         control.cpp \
     login.cpp \
-    mybutton.cpp
+    mybutton.cpp \
+    registerw.cpp \
+    json.c \
+    mainwidget.cpp \
+    about.cpp \
+    errorlabel.cpp
 
 HEADERS  += control.h \
     login.h \
     mybutton.h \
-    SqlConn.h
+    SqlConn.h \
+    registerw.h \
+    json.h \
+    mainwidget.h \
+    about.h \
+    errorlabel.h
 
 FORMS    += control.ui \
-    login.ui
+    login.ui \
+    registerw.ui \
+    mainwidget.ui \
+    about.ui
 
 RESOURCES += \
     resources.qrc

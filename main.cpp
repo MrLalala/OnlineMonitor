@@ -1,4 +1,4 @@
-#include "login.h"
+#include "mainwidget.h"
 #include "SqlConn.h"
 #include <QDebug>
 #include <QApplication>
@@ -14,10 +14,7 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForCStrings(codec);
     QTextCodec::setCodecForLocale(codec);
     QTextCodec::setCodecForTr(codec);
-//    Control w;
-//    w.show();
-    Login login;
-    login.show();
-    
+    MainWidget mainw;
+    mainw.show();
     return a.exec();
 }

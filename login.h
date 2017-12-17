@@ -12,14 +12,27 @@ class Login : public QDialog
     Q_OBJECT
     
 public:
-    explicit Login(QWidget *parent = 0);
+    explicit Login(QWidget* mainW, QWidget *parent = 0);
     ~Login();
+//public slots:
+//    void
     
 private slots:
     void on_login_clicked();
 
+    void on_signin_clicked();
+
+    void on_about_clicked();
+
+    void on_exit_clicked();
+
 private:
     Ui::Login *ui;
+
+
+signals:
+    void display(int);
+    void closeW();
 };
 
 #endif // LOGIN_H

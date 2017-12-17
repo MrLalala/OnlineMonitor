@@ -1,22 +1,12 @@
-#include "login.h"
 #include "ui_login.h"
+#include "login.h"
 
-Login::Login(QWidget *parent) :
+Login::Login(QWidget *mainW, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Login)
 {
     ui->setupUi(this);
-//    去除窗体边框
-    this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowSystemMenuHint);
-//    设置自动填充的背景
-    QString qss = "Login{border-image: url(:/images/main2.jpg);}";
-//    设着按钮透明无边框
-    qss += "QToolButton{color:white;background-color:rgba(0,0,0,0);border-style:none;}";
-//    设置输入框透明
-    qss += "QLineEdit{color: white;background-color: rgba(0,0,0,0);}";
-//    设置QLabel字体颜色为白色
-    qss += "QLabel{color:white;}";
-    setStyleSheet(qss);
+    installEventFilter(mainW);
 }
 
 Login::~Login()
@@ -27,4 +17,25 @@ Login::~Login()
 void Login::on_login_clicked()
 {
 
+}
+
+void Login::on_signin_clicked()
+{
+    ui->name->clear();
+    ui->name_error->clear();
+    ui->password->clear();
+    ui->psd_error->clear();
+    emit display(1);
+}
+
+
+void Login::on_about_clicked()
+{
+    emit display(2);
+}
+
+void Login::on_exit_clicked()
+{
+    this->close();
+    emit closeW();
 }
