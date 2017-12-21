@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>583</width>
-    <height>385</height>
+    <width>991</width>
+    <height>516</height>
    </rect>
   </property>
   <property name="font">
@@ -20,8 +20,7 @@
    <string>Control</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">
-</string>
+   <string notr="true"/>
   </property>
   <property name="toolButtonStyle">
    <enum>Qt::ToolButtonTextUnderIcon</enum>

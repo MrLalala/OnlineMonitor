@@ -14,9 +14,10 @@ class Login : public QDialog
 public:
     explicit Login(QWidget* mainW, QWidget *parent = 0);
     ~Login();
-//public slots:
-//    void
     
+protected:
+//    void keyReleaseEvent(QKeyEvent *);
+
 private slots:
     void on_login_clicked();
 

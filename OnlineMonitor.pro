@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     json.c \
     mainwidget.cpp \
     about.cpp \
-    errorlabel.cpp
+    errorlabel.cpp \
+    SqlConn.cpp
 
 HEADERS  += control.h \
     login.h \

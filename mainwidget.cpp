@@ -28,7 +28,6 @@ MainWidget::MainWidget(QWidget *parent) :
     registerw = new RegisterW(this);
     about = new About(this);
     stackLayout = new QStackedLayout(this);
-    stackLayout->installEventFilter(this);
     stackLayout->addWidget(login);
     stackLayout->addWidget(registerw);
     stackLayout->addWidget(about);
@@ -52,36 +51,27 @@ void MainWidget::_recvDisplay(int a)
 //过滤stackedLayout的esc按键事件。
 bool MainWidget::eventFilter(QObject *obj, QEvent *event)
 {
-
     if (event->type() == (QEvent::MouseButtonPress || QEvent::MouseButtonRelease||QEvent::MouseMove))
     {
         return true;
     }
-    if (obj == login)
+    if (event->type() == QEvent::KeyRelease)
     {
-        if (event->type() == QEvent::KeyRelease)
+        QKeyEvent* temp = static_cast<QKeyEvent*>(event);
+        qDebug()<<temp->key();
+        if(temp->key() == Qt::Key_Escape)
         {
-            QKeyEvent* temp = static_cast<QKeyEvent*>(event);
-            if(temp->key() == Qt::Key_Escape)
+            if (obj == login)
             {
                 this->close();
                 login->close();
                 return true;
             }
-            return false;
-        }
-    }
-    if (obj == registerw || obj == about)
-    {
-        if (event->type() == QEvent::KeyRelease)
-        {
-            QKeyEvent* temp = static_cast<QKeyEvent*>(event);
-            if(temp->key() == Qt::Key_Escape)
+            else if (obj == registerw || obj == about)
             {
                 stackLayout->setCurrentIndex(0);
                 return true;
             }
-            return false;
         }
         return false;
     }

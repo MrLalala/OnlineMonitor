@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
         return 0;
     QApplication a(argc, argv);
 //    添加中文显示
-    QTextCodec* codec = QTextCodec::codecForName("urf-8");
+    QTextCodec* codec = QTextCodec::codecForName("utf-8");
     QTextCodec::setCodecForCStrings(codec);
     QTextCodec::setCodecForLocale(codec);
     QTextCodec::setCodecForTr(codec);
