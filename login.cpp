@@ -10,7 +10,7 @@ Login::Login(QWidget *mainW, QWidget *parent) :
 {
     ui->setupUi(this);
     installEventFilter(mainW);
-    ui->login->setFocus();
+    ui->name->setFocus();
 }
 
 Login::~Login()
@@ -63,7 +63,9 @@ void Login::on_login_clicked()
             else
             {
                 Control* c = new Control();
+                connect(this,SIGNAL(userLogin(QString)),c,SLOT(showUser(QString)));
                 c->show();
+                emit userLogin(ui->name->text());
                 emit(closeW());
                 this->close();
             }
@@ -72,15 +74,6 @@ void Login::on_login_clicked()
 
 }
 
-//void Login::keyReleaseEvent(QKeyEvent *e)
-//{
-//    qDebug()<<e->key();
-//    if (e->key() == Qt::Key_Enter || e->key() == 16777221)
-//    {
-//        qDebug()<<e->key();
-//        ui->login->click();
-//    }
-//}
 
 void Login::on_signin_clicked()
 {
@@ -101,4 +94,9 @@ void Login::on_exit_clicked()
 {
     this->close();
     emit closeW();
+}
+
+void Login::onEnter()
+{
+    on_login_clicked();
 }

@@ -3,6 +3,7 @@
 #include "login.h"
 #include "registerw.h"
 #include "about.h"
+#include "mymessagebox.h"
 #include <QStackedLayout>
 #include <QKeyEvent>
 #include <QMouseEvent>
@@ -35,6 +36,10 @@ MainWidget::MainWidget(QWidget *parent) :
     connect(registerw,SIGNAL(display(int)),SLOT(_recvDisplay(int)));
     connect(about,SIGNAL(display(int)),SLOT(_recvDisplay(int)));
     connect(login,SIGNAL(closeW()),SLOT(close()));
+    connect(registerw,SIGNAL(closeW()),SLOT(close()));
+    connect(this,SIGNAL(loginEnter()),login,SLOT(onEnter()));
+    connect(this,SIGNAL(registEnter()),registerw,SLOT(onEnter()));
+    connect(this,SIGNAL(sendClear()),registerw,SLOT(clearMsg()));
 }
 
 MainWidget::~MainWidget()
@@ -51,14 +56,13 @@ void MainWidget::_recvDisplay(int a)
 //过滤stackedLayout的esc按键事件。
 bool MainWidget::eventFilter(QObject *obj, QEvent *event)
 {
-    if (event->type() == (QEvent::MouseButtonPress || QEvent::MouseButtonRelease||QEvent::MouseMove))
+    if (event->type() == (QEvent::MouseButtonPress || QEvent::MouseButtonRelease || QEvent::MouseMove))
     {
         return true;
     }
-    if (event->type() == QEvent::KeyRelease)
+    if (event->type() == QEvent::KeyPress)
     {
         QKeyEvent* temp = static_cast<QKeyEvent*>(event);
-        qDebug()<<temp->key();
         if(temp->key() == Qt::Key_Escape)
         {
             if (obj == login)
@@ -70,6 +74,20 @@ bool MainWidget::eventFilter(QObject *obj, QEvent *event)
             else if (obj == registerw || obj == about)
             {
                 stackLayout->setCurrentIndex(0);
+                emit sendClear();
+                return true;
+            }
+        }
+        if (temp->key() == Qt::Key_Enter || temp->key() == Qt::Key_Return)
+        {
+            if (obj == login)
+            {
+                emit loginEnter();
+                return true;
+            }
+            if (obj == registerw)
+            {
+                emit registEnter();
                 return true;
             }
         }

@@ -18,6 +18,12 @@ public:
 private:
     Ui::Control *ui;
     void InitWindow();
+
+public slots:
+    void showUser(QString);
+
+signals:
+
 };
 
 #endif // CONTROL_H

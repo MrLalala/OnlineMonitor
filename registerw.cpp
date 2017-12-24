@@ -1,6 +1,9 @@
 #include "registerw.h"
 #include "ui_registerw.h"
 #include "SqlConn.h"
+#include "control.h"
+#include "mymessagebox.h"
+#include "json.h"
 
 RegisterW::RegisterW(QWidget* mainW, QWidget *parent) :
     QDialog(parent),
@@ -17,12 +20,7 @@ RegisterW::~RegisterW()
 
 void RegisterW::on_back_clicked()
 {
-    ui->name->clear();
-    ui->name_error->clear();
-    ui->psd->clear();
-    ui->psd_error->clear();
-    ui->repsd->clear();
-    ui->repsd_error->clear();
+    clearMsg();
     emit display(0);
 }
 
@@ -76,6 +74,14 @@ void RegisterW::on_regist_clicked()
             {
                 return;
             }
+            else
+            {
+                temp = new MyMessageBox("登录确认", "是否直接登录？","query");
+                connect(temp, SIGNAL(sendMsg(char*)),SLOT(msgRecv(char*)));
+                temp->setModal(true);
+                temp->show();
+            }
+
         }
         else
         {
@@ -83,4 +89,40 @@ void RegisterW::on_regist_clicked()
             return;
         }
     }
+}
+
+void RegisterW::onEnter()
+{
+    on_regist_clicked();
+}
+
+void RegisterW::msgRecv(char *msg)
+{
+    cJSON* root = cJSON_Parse(msg);
+    cJSON* type = cJSON_GetObjectItem(root, "type");
+    if (QString(type->valuestring) == "yes")
+    {
+        Control* c = new Control;
+        connect(this,SIGNAL(userLogin(QString)),c,SLOT(showUser(QString)));
+        c->show();
+        emit userLogin(ui->name->text());
+        emit closeW();
+        this->close();
+        temp->close();
+    }
+    else
+    {
+        on_back_clicked();
+        temp->close();
+    }
+}
+
+void RegisterW::clearMsg()
+{
+    ui->name->clear();
+    ui->name_error->clear();
+    ui->psd->clear();
+    ui->psd_error->clear();
+    ui->repsd->clear();
+    ui->repsd_error->clear();
 }

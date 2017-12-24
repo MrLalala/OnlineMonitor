@@ -37,6 +37,11 @@ private:
     int stacked;
     bool mousePressed;
     QPoint mousePos;
+
+signals:
+    void loginEnter();
+    void registEnter();
+    void sendClear();
 };
 
 #endif // MAINWIDGET_H

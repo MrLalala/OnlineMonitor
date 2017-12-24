@@ -14,9 +14,10 @@ class Login : public QDialog
 public:
     explicit Login(QWidget* mainW, QWidget *parent = 0);
     ~Login();
-    
-protected:
-//    void keyReleaseEvent(QKeyEvent *);
+
+
+public slots:
+    void onEnter();
 
 private slots:
     void on_login_clicked();
@@ -30,10 +31,10 @@ private slots:
 private:
     Ui::Login *ui;
 
-
 signals:
     void display(int);
     void closeW();
+    void userLogin(QString);
 };
 
 #endif // LOGIN_H
