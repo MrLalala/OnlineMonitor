@@ -6,5 +6,10 @@
         <file>images/ok.png</file>
         <file>images/query.png</file>
         <file>images/warn.png</file>
+        <file>images/city.png</file>
+        <file>images/data.png</file>
+        <file>images/exit.png</file>
+        <file>images/password.png</file>
+        <file>images/people.png</file>
     </qresource>
 </RCC>

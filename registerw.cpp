@@ -68,7 +68,7 @@ void RegisterW::on_regist_clicked()
                 ui->repsd_error->setText("两次密码不相同！");
                 return;
             }
-            sql = "INSERT INTO user(name, password, permission) VALUES ('" + name + "','" + psd + "', 2)";
+            sql = "INSERT INTO user(name, password, permission) VALUES ('" + name + "','" + psd + "', 1)";
             query.prepare(sql);
             if (!QueryRun(query, "插入注册用户."))
             {

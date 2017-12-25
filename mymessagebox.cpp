@@ -13,8 +13,7 @@ MyMessageBox::MyMessageBox(QString title, QString msg, QString type, QString yes
     ui->no->setText(no);
     setWindowTitle(title);
     ui->msg->setText(msg);
-    QString qss = "MyMessageBox{border-image: url(:/images/main2.jpg);} #type{border-image:url(:/images/%1.png);}#msg,QPushButton{font-family: Microsoft YaHei UI; font-size: 15px;color: white;background-color: rgba(0,0,0,0);}";
-    qDebug()<<qss.arg(type);
+    QString qss = "MyMessageBox{border-image: url(:/images/main2.jpg);} #type{border-image:url(:/images/%1.png);}#msg,QPushButton{font-family: Microsoft YaHei UI; font-size: 18px;color: white;background-color: rgba(0,0,0,0);}";
     setStyleSheet(qss.arg(type));
 }
 

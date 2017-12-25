@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+class MyMessageBox;
+
 namespace Ui {
 class Control;
 }
@@ -18,12 +20,19 @@ public:
 private:
     Ui::Control *ui;
     void InitWindow();
+    MyMessageBox* message;
 
 public slots:
     void showUser(QString);
 
 signals:
 
+private slots:
+    void on_user_clicked();
+
+    void recvMsg(char*);
+
+    void timeUpdate();
 };
 
 #endif // CONTROL_H
