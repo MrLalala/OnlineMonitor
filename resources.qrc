@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>images/main2.jpg</file>
-        <file>images/PNG101.png</file>
         <file>images/error.png</file>
         <file>images/ok.png</file>
         <file>images/query.png</file>
@@ -11,5 +10,6 @@
         <file>images/exit.png</file>
         <file>images/password.png</file>
         <file>images/people.png</file>
+        <file>images/update.png</file>
     </qresource>
 </RCC>

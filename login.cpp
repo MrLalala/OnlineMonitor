@@ -1,7 +1,7 @@
 #include "ui_login.h"
 #include "login.h"
 #include "SqlConn.h"
-#include "control.h"
+#include "maincontrol.h"
 #include <QKeyEvent>
 
 Login::Login(QWidget *mainW, QWidget *parent) :
@@ -62,8 +62,8 @@ void Login::on_login_clicked()
             }
             else
             {
-                Control* c = new Control();
-                connect(this,SIGNAL(userLogin(QString)),c,SLOT(showUser(QString)));
+                MainControl* c = new MainControl();
+                connect(this,SIGNAL(userLogin(QString)),c,SLOT(getName(QString)));
                 c->show();
                 emit userLogin(ui->name->text());
                 emit(closeW());

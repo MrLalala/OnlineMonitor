@@ -14,25 +14,25 @@ class Control : public QMainWindow
     Q_OBJECT
     
 public:
-    explicit Control(QWidget *parent = 0);
+    explicit Control(QWidget *mainW, QWidget *parent = 0);
     ~Control();
     
 private:
     Ui::Control *ui;
-    void InitWindow();
     MyMessageBox* message;
 
 public slots:
     void showUser(QString);
 
 signals:
-
+    void closeW();
 private slots:
     void on_user_clicked();
 
     void recvMsg(char*);
 
     void timeUpdate();
+    void on_exit_clicked();
 };
 
 #endif // CONTROL_H

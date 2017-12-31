@@ -1,7 +1,7 @@
 #include "registerw.h"
 #include "ui_registerw.h"
 #include "SqlConn.h"
-#include "control.h"
+#include "maincontrol.h"
 #include "mymessagebox.h"
 #include "json.h"
 
@@ -102,8 +102,8 @@ void RegisterW::msgRecv(char *msg)
     cJSON* type = cJSON_GetObjectItem(root, "type");
     if (QString(type->valuestring) == "yes")
     {
-        Control* c = new Control;
-        connect(this,SIGNAL(userLogin(QString)),c,SLOT(showUser(QString)));
+        MainControl* c = new MainControl;
+        connect(this,SIGNAL(userLogin(QString)),c,SLOT(getName(QString)));
         c->show();
         emit userLogin(ui->name->text());
         emit closeW();

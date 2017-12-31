@@ -6,13 +6,14 @@
 #include <QStackedLayout>
 #include <QTimer>
 #include <QDateTime>
+#include <QDebug>
 
-Control::Control(QWidget *parent) :
+Control::Control(QWidget* mainW, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Control)
 {
     ui->setupUi(this);
-    this->InitWindow();
+    installEventFilter(mainW);
     QTimer* time = new QTimer(this);
     connect(time, SIGNAL(timeout()), SLOT(timeUpdate()));
     time->start(1000);
@@ -23,16 +24,6 @@ Control::~Control()
     delete ui;
 }
 
-void Control::InitWindow()
-{
-    QString qss = QString("QWidget#Control{border-image: url(:/images/main2.jpg);}");
-    qss += "QToolButton{color:#E7ECF0;background-color:rgba(0,0,0,0);border-style:none;}";
-    qss += "MyButton{color:black;font-family: Microsoft YaHei UI; font-size: 15px;}";
-    qss += "#time{color:white;font-family: Microsoft YaHei UI; font-size: 15px;}";
-    this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowSystemMenuHint);
-    this->setStyleSheet(qss);
-}
-
 void Control::showUser(QString name)
 {
     ui->user->setText("欢迎！"+name);
@@ -40,7 +31,7 @@ void Control::showUser(QString name)
 
 void Control::on_user_clicked()
 {
-    message = new MyMessageBox("提示","是否注销？","query","是","否");
+    message = new MyMessageBox("提示","是否注销？","query","注销");
     message->setModal(true);
     connect(message,SIGNAL(sendMsg(char*)),SLOT(recvMsg(char*)));
     message->show();
@@ -49,18 +40,37 @@ void Control::on_user_clicked()
 void Control::recvMsg(char *msg)
 {
     cJSON* root = cJSON_Parse(msg);
+    cJSON* flag = cJSON_GetObjectItem(root, "flag");
     cJSON* type = cJSON_GetObjectItem(root, "type");
-    if (QString(type->valuestring) == "yes")
+
+    if (QString(flag->valuestring) == "注销")
     {
-        MainWidget* temp = new MainWidget;
-        temp->show();
-        message->close();
-        this->close();
+        if (QString(type->valuestring) == "yes")
+        {
+            MainWidget* temp = new MainWidget;
+            temp->show();
+            message->close();
+            emit closeW();
+            this->close();
+        }
+        else
+        {
+            message->close();
+        }
     }
-    else
+    if (QString(flag->valuestring) == "退出")
     {
-        message->close();
+        if (QString(type->valuestring) == "yes")
+        {
+            emit closeW();
+            this->close();
+        }
+        else
+        {
+            message->close();
+        }
     }
+    delete message;
 }
 
 void Control::timeUpdate()
@@ -68,4 +78,12 @@ void Control::timeUpdate()
     QDateTime time = QDateTime::currentDateTime();
     QString str = time.toString("yyyy-MM-dd hh:mm:ss dddd");
     ui->time->setText(str);
+}
+
+void Control::on_exit_clicked()
+{
+    message = new MyMessageBox("退出","是否退出？","query","退出");
+    message->setModal(true);
+    connect(message,SIGNAL(sendMsg(char*)),SLOT(recvMsg(char*)));
+    message->show();
 }

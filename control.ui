@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>975</width>
-    <height>562</height>
+    <width>1000</width>
+    <height>540</height>
    </rect>
   </property>
   <property name="font">
@@ -26,45 +26,10 @@
    <enum>Qt::ToolButtonTextUnderIcon</enum>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QToolButton" name="userMgr">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>80</y>
-      <width>131</width>
-      <height>131</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Microsoft YaHei UI</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>用户管理</string>
-    </property>
-    <property name="icon">
-     <iconset resource="resources.qrc">
-      <normaloff>:/images/people.png</normaloff>:/images/people.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>100</width>
-      <height>100</height>
-     </size>
-    </property>
-    <property name="toolButtonStyle">
-     <enum>Qt::ToolButtonTextUnderIcon</enum>
-    </property>
-    <property name="autoRaise">
-     <bool>false</bool>
-    </property>
-   </widget>
    <widget class="MyButton" name="user">
     <property name="geometry">
      <rect>
-      <x>794</x>
+      <x>840</x>
       <y>20</y>
       <width>131</width>
       <height>31</height>
@@ -72,146 +37,6 @@
     </property>
     <property name="text">
      <string/>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="cityMgr">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>80</y>
-      <width>131</width>
-      <height>131</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Microsoft YaHei UI</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>城市管理</string>
-    </property>
-    <property name="icon">
-     <iconset resource="resources.qrc">
-      <normaloff>:/images/city.png</normaloff>:/images/city.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>100</width>
-      <height>100</height>
-     </size>
-    </property>
-    <property name="toolButtonStyle">
-     <enum>Qt::ToolButtonTextUnderIcon</enum>
-    </property>
-    <property name="autoRaise">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="psdChg">
-    <property name="geometry">
-     <rect>
-      <x>610</x>
-      <y>80</y>
-      <width>131</width>
-      <height>131</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Microsoft YaHei UI</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>修改密码</string>
-    </property>
-    <property name="icon">
-     <iconset resource="resources.qrc">
-      <normaloff>:/images/password.png</normaloff>:/images/password.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>100</width>
-      <height>100</height>
-     </size>
-    </property>
-    <property name="toolButtonStyle">
-     <enum>Qt::ToolButtonTextUnderIcon</enum>
-    </property>
-    <property name="autoRaise">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="showData">
-    <property name="geometry">
-     <rect>
-      <x>420</x>
-      <y>80</y>
-      <width>131</width>
-      <height>131</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Microsoft YaHei UI</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>显示数据</string>
-    </property>
-    <property name="icon">
-     <iconset resource="resources.qrc">
-      <normaloff>:/images/data.png</normaloff>:/images/data.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>100</width>
-      <height>100</height>
-     </size>
-    </property>
-    <property name="toolButtonStyle">
-     <enum>Qt::ToolButtonTextUnderIcon</enum>
-    </property>
-    <property name="autoRaise">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="exit">
-    <property name="geometry">
-     <rect>
-      <x>800</x>
-      <y>80</y>
-      <width>131</width>
-      <height>131</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Microsoft YaHei UI</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>退出</string>
-    </property>
-    <property name="icon">
-     <iconset resource="resources.qrc">
-      <normaloff>:/images/exit.png</normaloff>:/images/exit.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>100</width>
-      <height>100</height>
-     </size>
-    </property>
-    <property name="toolButtonStyle">
-     <enum>Qt::ToolButtonTextUnderIcon</enum>
-    </property>
-    <property name="autoRaise">
-     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLabel" name="time">
@@ -226,6 +51,163 @@
     <property name="text">
      <string/>
     </property>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>80</y>
+      <width>801</width>
+      <height>401</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="0">
+      <widget class="QToolButton" name="exit">
+       <property name="font">
+        <font>
+         <family>Microsoft YaHei UI</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>退出</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resources.qrc">
+         <normaloff>:/images/exit.png</normaloff>:/images/exit.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>100</width>
+         <height>100</height>
+        </size>
+       </property>
+       <property name="toolButtonStyle">
+        <enum>Qt::ToolButtonTextUnderIcon</enum>
+       </property>
+       <property name="autoRaise">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QToolButton" name="cityMgr">
+       <property name="font">
+        <font>
+         <family>Microsoft YaHei UI</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>城市管理</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resources.qrc">
+         <normaloff>:/images/city.png</normaloff>:/images/city.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>100</width>
+         <height>100</height>
+        </size>
+       </property>
+       <property name="toolButtonStyle">
+        <enum>Qt::ToolButtonTextUnderIcon</enum>
+       </property>
+       <property name="autoRaise">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QToolButton" name="userMgr">
+       <property name="font">
+        <font>
+         <family>Microsoft YaHei UI</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>用户管理</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resources.qrc">
+         <normaloff>:/images/people.png</normaloff>:/images/people.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>100</width>
+         <height>100</height>
+        </size>
+       </property>
+       <property name="toolButtonStyle">
+        <enum>Qt::ToolButtonTextUnderIcon</enum>
+       </property>
+       <property name="autoRaise">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QToolButton" name="showData">
+       <property name="font">
+        <font>
+         <family>Microsoft YaHei UI</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>显示数据</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resources.qrc">
+         <normaloff>:/images/data.png</normaloff>:/images/data.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>100</width>
+         <height>100</height>
+        </size>
+       </property>
+       <property name="toolButtonStyle">
+        <enum>Qt::ToolButtonTextUnderIcon</enum>
+       </property>
+       <property name="autoRaise">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QToolButton" name="psdChg">
+       <property name="font">
+        <font>
+         <family>Microsoft YaHei UI</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>修改密码</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resources.qrc">
+         <normaloff>:/images/password.png</normaloff>:/images/password.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>100</width>
+         <height>100</height>
+        </size>
+       </property>
+       <property name="toolButtonStyle">
+        <enum>Qt::ToolButtonTextUnderIcon</enum>
+       </property>
+       <property name="autoRaise">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
  </widget>

@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     about.cpp \
     errorlabel.cpp \
     SqlConn.cpp \
-    mymessagebox.cpp
+    mymessagebox.cpp \
+    maincontrol.cpp
 
 HEADERS  += control.h \
     login.h \
@@ -33,14 +34,16 @@ HEADERS  += control.h \
     mainwidget.h \
     about.h \
     errorlabel.h \
-    mymessagebox.h
+    mymessagebox.h \
+    maincontrol.h
 
 FORMS    += control.ui \
     login.ui \
     registerw.ui \
     mainwidget.ui \
     about.ui \
-    mymessagebox.ui
+    mymessagebox.ui \
+    maincontrol.ui
 
 RESOURCES += \
     resources.qrc

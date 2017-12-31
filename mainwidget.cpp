@@ -117,8 +117,7 @@ void MainWidget::mousePressEvent(QMouseEvent *e)
     }
 }
 
-void MainWidget::mouseReleaseEvent(QMouseEvent *e)
+void MainWidget::mouseReleaseEvent(QMouseEvent *)
 {
     mousePressed = false;
-    Q_UNUSED(e);
 }
