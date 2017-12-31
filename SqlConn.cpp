@@ -47,7 +47,7 @@ bool InitTable()
     QSqlQuery query(*database);
     QString sql = "select * from user where name='admin';";
     query.prepare(sql);
-    if (QueryRun(query, "Find admin"))
+    if (QueryRun(query, "Find admin1"))
     {
         if (!query.next())
         {
@@ -66,7 +66,7 @@ bool InitTable()
         query.prepare(sql);
         if (!QueryRun(query, "Add Table"))
             return false;
-        sql = "INSERT INTO user(name, password, permission) VALUES('admin', 'admin', 1);";
+        sql = "INSERT INTO user(name, password, permission) VALUES('admin', 'admin', 15);";
         query.prepare(sql);
         if (!QueryRun(query, "Inser admin"))
             return false;

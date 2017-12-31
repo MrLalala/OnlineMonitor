@@ -20,6 +20,7 @@ public:
 private:
     Ui::Control *ui;
     MyMessageBox* message;
+    QString name;
 
 public slots:
     void showUser(QString);
@@ -33,6 +34,7 @@ private slots:
 
     void timeUpdate();
     void on_exit_clicked();
+    void on_psdChg_clicked();
 };
 
 #endif // CONTROL_H

@@ -3,8 +3,8 @@
 MyButton::MyButton(QWidget *parent) :
     QPushButton(parent)
 {
-    qss = "MyButton{background: transparent;color: %1}";
-    setStyleSheet(qss.arg("black"));
+    qss = "MyButton{background: transparent;color: %1;}";
+    setStyleSheet(qss.arg("white"));
 }
 
 void MyButton::enterEvent(QEvent *)
@@ -14,5 +14,5 @@ void MyButton::enterEvent(QEvent *)
 
 void MyButton::leaveEvent(QEvent *)
 {
-    setStyleSheet(qss.arg("black"));
+    setStyleSheet(qss.arg("white"));
 }

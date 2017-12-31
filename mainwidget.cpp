@@ -22,7 +22,6 @@ MainWidget::MainWidget(QWidget *parent) :
     qss += "QToolButton,QLineEdit{font-family: Microsoft YaHei UI; font-size: 15px;color: white;background-color: rgba(0,0,0,0);}";
 //    设置QLabel字体颜色为白色
     qss += "QLabel{color:white; font-family: Microsoft YaHei UI; font-size: 15px;}";
-    qss += "ErrorLabel{color:red; font-family: Microsoft YaHei UI; font-size: 15px;}";
     qss += "#welcome{color:white; font-family: Microsoft YaHei UI; font-size: 35px;}";
     setStyleSheet(qss);
     login = new Login(this);

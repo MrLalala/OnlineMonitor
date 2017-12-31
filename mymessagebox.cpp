@@ -9,7 +9,15 @@ MyMessageBox::MyMessageBox(QString title, QString msg, QString type, QString fla
     ui->setupUi(this);
     this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowSystemMenuHint);
     ui->yes->setText(yes);
-    ui->no->setText(no);
+    if (no == "")
+    {
+        ui->no->hide();
+        ui->yes->move(115,140);
+    }
+    else
+    {
+        ui->no->setText(no);
+    }
     setWindowTitle(title);
     ui->msg->setText(msg);
     QString qss = "MyMessageBox{border-image: url(:/images/main2.jpg);} #type{border-image:url(:/images/%1.png);}#msg,QPushButton{font-family: Microsoft YaHei UI; font-size: 18px;color: white;background-color: rgba(0,0,0,0);}";

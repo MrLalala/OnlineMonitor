@@ -23,7 +23,9 @@ SOURCES += main.cpp\
     errorlabel.cpp \
     SqlConn.cpp \
     mymessagebox.cpp \
-    maincontrol.cpp
+    maincontrol.cpp \
+    chgpsd.cpp \
+    peoplemgr.cpp
 
 HEADERS  += control.h \
     login.h \
@@ -35,7 +37,9 @@ HEADERS  += control.h \
     about.h \
     errorlabel.h \
     mymessagebox.h \
-    maincontrol.h
+    maincontrol.h \
+    chgpsd.h \
+    peoplemgr.h
 
 FORMS    += control.ui \
     login.ui \
@@ -43,7 +47,9 @@ FORMS    += control.ui \
     mainwidget.ui \
     about.ui \
     mymessagebox.ui \
-    maincontrol.ui
+    maincontrol.ui \
+    chgpsd.ui \
+    peoplemgr.ui
 
 RESOURCES += \
     resources.qrc

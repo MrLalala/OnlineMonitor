@@ -7,6 +7,7 @@
 #include <QTimer>
 #include <QDateTime>
 #include <QDebug>
+#include "chgpsd.h"
 
 Control::Control(QWidget* mainW, QWidget *parent) :
     QMainWindow(parent),
@@ -26,6 +27,7 @@ Control::~Control()
 
 void Control::showUser(QString name)
 {
+    this->name = name;
     ui->user->setText("欢迎！"+name);
 }
 
@@ -86,4 +88,11 @@ void Control::on_exit_clicked()
     message->setModal(true);
     connect(message,SIGNAL(sendMsg(char*)),SLOT(recvMsg(char*)));
     message->show();
+}
+
+void Control::on_psdChg_clicked()
+{
+    ChgPsd* chg = new ChgPsd(this->name);
+    chg->setModal(true);
+    chg->show();
 }
