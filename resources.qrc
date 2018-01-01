@@ -11,5 +11,7 @@
         <file>images/password.png</file>
         <file>images/people.png</file>
         <file>images/update.png</file>
+        <file>images/yes.png</file>
+        <file>images/ept.png</file>
     </qresource>
 </RCC>

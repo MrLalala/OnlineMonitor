@@ -7,7 +7,7 @@
 
 QSqlDatabase* Conn();
 
-bool QueryRun(QSqlQuery& query, const QString opt);
+bool QueryRun(QSqlQuery& query, const QString opt, const QString type = "normal");
 
 bool InitTable();
 

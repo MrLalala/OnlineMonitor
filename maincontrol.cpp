@@ -1,6 +1,7 @@
 #include "maincontrol.h"
 #include "ui_maincontrol.h"
 #include "control.h"
+#include "peoplemgr.h"
 #include <QStackedLayout>
 #include "mymessagebox.h"
 #include <QKeyEvent>
@@ -13,17 +14,24 @@ MainControl::MainControl(QWidget *parent) :
     ui(new Ui::MainControl)
 {
     ui->setupUi(this);
-    QString qss = QString("#MainControl,#Control{border-image: url(:/images/main2.jpg);}");
+    QString qss = QString("#MainControl{border-image: url(:/images/main2.jpg);}");
     qss += "QToolButton{color:#E7ECF0;background-color:rgba(0,0,0,0);border-style:none;}";
-    qss += "MyButton{color:black;font-family: Microsoft YaHei UI; font-size: 15px;}";
     qss += "#time{color:white;font-family: Microsoft YaHei UI; font-size: 15px;}";
+    qss += "QPushButton{color:#E7ECF0;background-color:rgba(0,0,0,0);border-style:none;font-family:Microsoft YaHei UI; font-size: 15px;}";
+    qss += "#user_1,#user_2,#user_3,#user_4{color:white;font-family: Microsoft YaHei UI; font-size: 15px;}";
+    qss += "QLabel {color:white;font-family: Microsoft YaHei UI;}";
     this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowSystemMenuHint);
     setStyleSheet(qss);
+
     control = new Control(this);
+    pMgr = new PeopleMgr(this);
     stackLayout = new QStackedLayout(this);
     stackLayout->addWidget(control);
+    stackLayout->addWidget(pMgr);
 
     connect(this, SIGNAL(sendName(QString)), control, SLOT(showUser(QString)));
+    connect(control,SIGNAL(display(int)),stackLayout,SLOT(setCurrentIndex(int)));
+    connect(pMgr, SIGNAL(display(int)),stackLayout, SLOT(setCurrentIndex(int)));
     connect(control, SIGNAL(closeW()),SLOT(close()));
 }
 
@@ -75,3 +83,8 @@ void MainControl::getName(QString s)
     user = s;
     emit sendName(s);
 }
+
+//void MainControl::_recvDisplay(int layer)
+//{
+//    Q_UNUSED(layer);
+//}

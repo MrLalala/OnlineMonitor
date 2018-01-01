@@ -27,6 +27,7 @@ public slots:
 
 signals:
     void closeW();
+    void display(int);
 private slots:
     void on_user_clicked();
 
@@ -35,6 +36,10 @@ private slots:
     void timeUpdate();
     void on_exit_clicked();
     void on_psdChg_clicked();
+    void on_userMgr_clicked();
+
+protected:
+    void keyReleaseEvent(QKeyEvent *);
 };
 
 #endif // CONTROL_H

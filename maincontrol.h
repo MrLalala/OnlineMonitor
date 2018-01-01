@@ -6,6 +6,7 @@
 class MyMessageBox;
 class Control;
 class QStackedLayout;
+class PeopleMgr;
 class QPoint;
 
 namespace Ui {
@@ -30,14 +31,18 @@ protected:
 private:
     Ui::MainControl *ui;
     MyMessageBox* msgBox;
+
     Control* control;
+    PeopleMgr* pMgr;
     QStackedLayout* stackLayout;
+
     QString user;
     bool mousePressed;
     QPoint mousePos;
 
 public slots:
     void getName(QString);
+//    void _recvDisplay(int);
 
 signals:
     void sendName(QString);

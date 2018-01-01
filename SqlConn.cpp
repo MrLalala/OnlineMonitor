@@ -26,14 +26,30 @@ QSqlDatabase* Conn()
 //权限为4位，分别为任务管理权限，城市管理权限，城市查看权限，登录权限。
 //分别使用8,4,2,1来表示。默认admin权限为15，新注册人物权限为3（2+1）。
 
-bool QueryRun(QSqlQuery& query, const QString opt)
+bool QueryRun(QSqlQuery& query, const QString opt, const QString type)
 {
-    if (!query.exec())
+    bool success = true;
+    if (type == "normal")
     {
-        qDebug()<<"Error:"<<query.lastError()<<" in "<<opt;
-        return false;
+        if (!query.exec())
+        {
+            success =  false;
+        }
     }
-    return true;
+    if (type == "batch")
+    {
+        if (!query.execBatch())
+        {
+            success = false;
+        }
+    }
+    if (!success)
+    {
+        qDebug()<<query.lastQuery();
+        qDebug()<<"Error:"<<query.lastError()<<" in "<<opt;
+    }
+    return success;
+
 }
 
 bool InitTable()

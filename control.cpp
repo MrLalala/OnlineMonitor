@@ -7,6 +7,7 @@
 #include <QTimer>
 #include <QDateTime>
 #include <QDebug>
+#include <QKeyEvent>
 #include "chgpsd.h"
 
 Control::Control(QWidget* mainW, QWidget *parent) :
@@ -95,4 +96,17 @@ void Control::on_psdChg_clicked()
     ChgPsd* chg = new ChgPsd(this->name);
     chg->setModal(true);
     chg->show();
+}
+
+void Control::on_userMgr_clicked()
+{
+    emit display(1);
+}
+
+void Control::keyReleaseEvent(QKeyEvent *e)
+{
+    if (e->key() == Qt::Key_Escape)
+    {
+        on_exit_clicked();
+    }
 }

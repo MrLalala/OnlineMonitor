@@ -14,6 +14,10 @@ class MyMessageBox : public QDialog
     
 public:
     explicit MyMessageBox(QString title = "消息",QString msg = "提示", QString type = "ok", QString flag = "", QString yes = "是", QString no = "否", QWidget *parent = 0);
+//    static bool query();
+//    static bool warn();
+//    static bool error();
+//    static bool ok();
     ~MyMessageBox();
     
 signals:
