@@ -25,7 +25,11 @@ SOURCES += main.cpp\
     mymessagebox.cpp \
     maincontrol.cpp \
     chgpsd.cpp \
-    peoplemgr.cpp
+    peoplemgr.cpp \
+    citymgr.cpp \
+    chgvalue.cpp \
+    addcity.cpp \
+    detail.cpp
 
 HEADERS  += control.h \
     login.h \
@@ -39,7 +43,11 @@ HEADERS  += control.h \
     mymessagebox.h \
     maincontrol.h \
     chgpsd.h \
-    peoplemgr.h
+    peoplemgr.h \
+    citymgr.h \
+    chgvalue.h \
+    addcity.h \
+    detail.h
 
 FORMS    += control.ui \
     login.ui \
@@ -49,7 +57,11 @@ FORMS    += control.ui \
     mymessagebox.ui \
     maincontrol.ui \
     chgpsd.ui \
-    peoplemgr.ui
+    peoplemgr.ui \
+    citymgr.ui \
+    chgvalue.ui \
+    addcity.ui \
+    detail.ui
 
 RESOURCES += \
     resources.qrc

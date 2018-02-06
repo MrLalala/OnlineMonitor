@@ -7,6 +7,8 @@ class MyMessageBox;
 class Control;
 class QStackedLayout;
 class PeopleMgr;
+class CityMgr;
+class Detail;
 class QPoint;
 
 namespace Ui {
@@ -34,6 +36,8 @@ private:
 
     Control* control;
     PeopleMgr* pMgr;
+    Detail* detail;
+    CityMgr* cMgr;
     QStackedLayout* stackLayout;
 
     QString user;

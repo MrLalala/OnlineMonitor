@@ -69,3 +69,8 @@ void ChgPsd::on_submit_clicked()
         }
     }
 }
+
+void ChgPsd::on_cancel_clicked()
+{
+    this->close();
+}

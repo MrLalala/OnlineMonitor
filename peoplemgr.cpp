@@ -75,7 +75,9 @@ void PeopleMgr::dataUpdate()
             isTail = true;
     }
     ui->pgdn->setEnabled(!isTail);
+    ui->pgdn->setHidden(isTail);
     ui->pgup->setEnabled(!isHead);
+    ui->pgup->setHidden(isHead);
 }
 
 void PeopleMgr::changeMgr(int row, QString name, int auth)

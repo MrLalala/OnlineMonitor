@@ -1,6 +1,8 @@
 #include "mainwidget.h"
 #include "SqlConn.h"
 //#include "peoplemgr.h"
+//#include "citymgr.h"
+//#include "detail.h"
 #include <QDebug>
 #include <QApplication>
 #include <QTextCodec>
@@ -17,7 +19,9 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForTr(codec);
     MainWidget mainw;
     mainw.show();
-//    PeopleMgr p;
-//    p.show();
+//    CityMgr city;
+//    city.show();
+//    Detail d;
+//    d.show();
     return a.exec();
 }

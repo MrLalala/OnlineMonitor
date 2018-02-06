@@ -55,6 +55,8 @@ void Control::recvMsg(char *msg)
             message->close();
             emit closeW();
             this->close();
+//            qDebug()<<"注销";
+            return;
         }
         else
         {
@@ -66,7 +68,9 @@ void Control::recvMsg(char *msg)
         if (QString(type->valuestring) == "yes")
         {
             emit closeW();
+            message->close();
             this->close();
+            return;
         }
         else
         {
@@ -98,15 +102,26 @@ void Control::on_psdChg_clicked()
     chg->show();
 }
 
-void Control::on_userMgr_clicked()
-{
-    emit display(1);
-}
-
 void Control::keyReleaseEvent(QKeyEvent *e)
 {
     if (e->key() == Qt::Key_Escape)
     {
         on_exit_clicked();
     }
+}
+
+void Control::on_userMgr_clicked()
+{
+    emit display(1);
+}
+
+void Control::on_cityMgr_clicked()
+{
+    emit display(2);
+}
+
+void Control::on_showData_clicked()
+{
+    emit display(3);
+    emit send_back(0);
 }

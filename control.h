@@ -27,7 +27,11 @@ public slots:
 
 signals:
     void closeW();
+
     void display(int);
+
+    void send_back(int);
+
 private slots:
     void on_user_clicked();
 
@@ -37,6 +41,10 @@ private slots:
     void on_exit_clicked();
     void on_psdChg_clicked();
     void on_userMgr_clicked();
+
+    void on_cityMgr_clicked();
+
+    void on_showData_clicked();
 
 protected:
     void keyReleaseEvent(QKeyEvent *);

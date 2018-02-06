@@ -2,6 +2,8 @@
 #include "ui_maincontrol.h"
 #include "control.h"
 #include "peoplemgr.h"
+#include "citymgr.h"
+#include "detail.h"
 #include <QStackedLayout>
 #include "mymessagebox.h"
 #include <QKeyEvent>
@@ -25,14 +27,23 @@ MainControl::MainControl(QWidget *parent) :
 
     control = new Control(this);
     pMgr = new PeopleMgr(this);
+    cMgr = new CityMgr(this);
+    detail = new Detail(this);
     stackLayout = new QStackedLayout(this);
     stackLayout->addWidget(control);
     stackLayout->addWidget(pMgr);
+    stackLayout->addWidget(cMgr);
+    stackLayout->addWidget(detail);
 
     connect(this, SIGNAL(sendName(QString)), control, SLOT(showUser(QString)));
     connect(control,SIGNAL(display(int)),stackLayout,SLOT(setCurrentIndex(int)));
     connect(pMgr, SIGNAL(display(int)),stackLayout, SLOT(setCurrentIndex(int)));
-    connect(control, SIGNAL(closeW()),SLOT(close()));
+    connect(cMgr, SIGNAL(display(int)), stackLayout, SLOT(setCurrentIndex(int)));
+    connect(detail, SIGNAL(display(int)), stackLayout, SLOT(setCurrentIndex(int)));
+    connect(control, SIGNAL(closeW()),this, SLOT(close()));
+    connect(control, SIGNAL(send_back(int)), detail, SLOT(_InitTable(int)));
+    connect(cMgr, SIGNAL(select_city(QString)), detail, SLOT(_Chg_Value(QString)));
+    connect(cMgr, SIGNAL(send_back(int)), detail, SLOT(_InitTable(int)));
 }
 
 MainControl::~MainControl()
